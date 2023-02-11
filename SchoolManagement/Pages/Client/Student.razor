@@ -1,0 +1,11 @@
+﻿@page "/student"
+@inherits Service.Client.Student
+
+@foreach(var obj in students)
+{
+    <div id="success-box">
+        <div class="dot"></div>
+        <div class="message"><h1 class="alert">@obj.FirstName @obj.LastName</h1><p>Class: @obj.Class</p></div>
+        <a class="button-box" href="report/@obj.StudentID"><h1 class="green">See Profile</h1></a>
+    </div>
+}

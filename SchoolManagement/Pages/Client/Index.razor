@@ -1,0 +1,284 @@
+﻿@page "/index"
+@inherits Dashboard
+
+<div class="app-container">
+  <div class="app-header">
+    <div class="app-header-left">
+      <span class="app-icon"></span>
+      <p class="app-name">Membe School</p>
+      <div class="search-wrapper">
+        <input class="search-input" type="text" placeholder="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+          <defs></defs>
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="M21 21l-4.35-4.35"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="app-header-right">
+      <button class="mode-switch" title="Switch Theme" onclick="Switch_Button()">
+        <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+          <defs></defs>
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+        </svg>
+      </button>
+      <button class="add-btn" title="Add New Project">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="btn-icon feather feather-plus">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" /></svg>
+      </button>
+      <button class="notification-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+          <path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
+      </button>
+      <button class="profile-btn">
+        <img src="https://png.pngtree.com/png-vector/20191125/ourlarge/pngtree-beautiful-admin-roles-line-vector-icon-png-image_2035379.jpg" />
+        <span>Admin</span>
+      </button>
+    </div>
+    <button class="messages-btn" onclick="Show_Message()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+    </button>
+  </div>
+  <div class="app-content">
+    <div class="app-sidebar">
+      <a href="index" class="app-sidebar-link active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" /></svg>
+      </a>
+      <a href="student" class="app-sidebar-link">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	         width="32" height="32" viewBox="0 0 260 188" style="enable-background:new 0 0 260 188;" xml:space="preserve">
+        <path d="M134.3,109.2L202,83.8V146c0,13.4-32.2,24.3-72,24.3S58,159.4,58,146V83.8l67.9,25.4l4.2,1.6L134.3,109.2z M130.1,98L258,50
+	        L130.1,2L2,50l20,7.5v81.8c-4.7,2.2-8,7.1-8,12.7v34h28v-34c0-5.7-3.3-10.6-8.1-12.8V61.9L130.1,98z"/>
+        </svg>
+      </a>
+      <a href="teacher" class="app-sidebar-link">
+        <svg width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M 4 6 L 4 8 L 26 8 L 26 24 L 12 24 L 12 26 L 30 26 L 30 24 L 28 24 L 28 6 L 4 6 z M 8.0019531 9 C 5.8032706 9 4 10.802666 4 13 C 4 15.198683 5.8040743 17 8.0019531 17 C 10.197134 17 12 15.198683 12 13 C 12 10.802666 10.19794 9 8.0019531 9 z M 14 10 L 14 12 L 19 12 L 19 10 L 14 10 z M 21 10 L 21 12 L 24 12 L 24 10 L 21 10 z M 8.0019531 11 C 9.1159662 11 10 11.883334 10 13 C 10 14.119317 9.1167719 15 8.0019531 15 C 6.881832 15 6 14.119317 6 13 C 6 11.883334 6.8826357 11 8.0019531 11 z M 14 14 L 14 16 L 24 16 L 24 14 L 14 14 z M 4 18 L 4 26 L 6 26 L 6 20 L 9 20 L 9 26 L 11 26 L 11 20.658203 L 13.064453 21.75 C 13.648752 22.060158 14.351587 22.058921 14.935547 21.75 L 14.935547 21.751953 L 18.466797 19.884766 L 17.533203 18.115234 L 14.001953 19.982422 L 10.90625 18.347656 C 10.475078 18.120046 9.9935054 18 9.5039062 18 L 4 18 z"/></svg>      </a>
+      <a href="loading" class="app-sidebar-link">
+        <svg width="32px" height="32px" viewBox="0 0 32 32" id="i-options" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M28 6 L4 6 M28 16 L4 16 M28 26 L4 26 M24 3 L24 9 M8 13 L8 19 M20 23 L20 29" />
+        </svg>
+      </a>
+      <a href="exam" class="app-sidebar-link">
+        <svg width="32px" height="32px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 42H32C33.1046 42 34 41.1046 34 40V8C34 6.89543 33.1046 6 32 6H8C6.89543 6 6 6.89543 6 8V40C6 41.1046 6.89543 42 8 42ZM32 44H8C5.79086 44 4 42.2091 4 40V8C4 5.79086 5.79086 4 8 4H32C34.2091 4 36 5.79086 36 8V40C36 42.2091 34.2091 44 32 44Z" fill="#333333"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M18 13C18 12.4477 18.4477 12 19 12H31C31.5523 12 32 12.4477 32 13C32 13.5523 31.5523 14 31 14H19C18.4477 14 18 13.5523 18 13Z" fill="#333333"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M18 17C18 16.4477 18.4477 16 19 16H31C31.5523 16 32 16.4477 32 17C32 17.5523 31.5523 18 31 18H19C18.4477 18 18 17.5523 18 17Z" fill="#333333"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M18 25C18 24.4477 18.4477 24 19 24H31C31.5523 24 32 24.4477 32 25C32 25.5523 31.5523 26 31 26H19C18.4477 26 18 25.5523 18 25Z" fill="#333333"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M18 29C18 28.4477 18.4477 28 19 28H31C31.5523 28 32 28.4477 32 29C32 29.5523 31.5523 30 31 30H19C18.4477 30 18 29.5523 18 29Z" fill="#333333"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 26V29H13V26H10ZM9 24H14C14.5523 24 15 24.4477 15 25V30C15 30.5523 14.5523 31 14 31H9C8.44772 31 8 30.5523 8 30V25C8 24.4477 8.44772 24 9 24Z" fill="#333333"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 12.2929C16.0976 12.6834 16.0976 13.3166 15.7071 13.7071L11 18.4142L8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929C8.68342 13.9024 9.31658 13.9024 9.70711 14.2929L11 15.5858L14.2929 12.2929C14.6834 11.9024 15.3166 11.9024 15.7071 12.2929Z" fill="#333333"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M42 24H40V39.3333L41 40.6667L42 39.3333V24ZM44 40L41 44L38 40V22H44V40Z" fill="#333333"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M42 17H40V19H42V17ZM40 15H42C43.1046 15 44 15.8954 44 17V21H38V17C38 15.8954 38.8954 15 40 15Z" fill="#333333"/>
+        </svg>    
+      </a>
+      <a href="library" class="app-sidebar-link">
+          <svg width="32px" height="32px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>ionicons-v5-l</title><path d="M84,480H28a12,12,0,0,1-12-12V92A12,12,0,0,1,28,80H84A12,12,0,0,1,96,92V468A12,12,0,0,1,84,480Z"/><path d="M240,208V156a12,12,0,0,0-12-12H124a12,12,0,0,0-12,12v52Z"/><path d="M112,416v52a12,12,0,0,0,12,12H228a12,12,0,0,0,12-12V416Z"/><rect x="112" y="240" width="128" height="144"/><path d="M340,480H268a12,12,0,0,1-12-12V44a12,12,0,0,1,12-12h72a12,12,0,0,1,12,12V468A12,12,0,0,1,340,480Z"/><path d="M369,100.7l30,367.83a12,12,0,0,0,13.45,10.92l72.16-9a12,12,0,0,0,10.47-12.9L465,91.21a12,12,0,0,0-13.2-10.94l-72.13,7.51A12,12,0,0,0,369,100.7Z"/></svg>
+      </a>
+      <a href="ManagementSystem" class="app-sidebar-link">
+          <svg width="32px" height="32px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <path fill="var(--ci-primary-color, currentColor)" d="M48,464V144H16V472a24.027,24.027,0,0,0,24,24H368V464H48Z" class="ci-primary"/>
+              <path fill="var(--ci-primary-color, currentColor)" d="M144,400H112V80H80V408a24.027,24.027,0,0,0,24,24H432V400H144Z" class="ci-primary"/>
+              <path fill="var(--ci-primary-color, currentColor)" d="M472,16H168a24.027,24.027,0,0,0-24,24V344a24.027,24.027,0,0,0,24,24H472a24.027,24.027,0,0,0,24-24V40A24.027,24.027,0,0,0,472,16Zm-8,320H176V48H464Z" class="ci-primary"/>
+              <polygon fill="var(--ci-primary-color, currentColor)" points="304 288 336 288 336 204 420 204 420 172 336 172 336 88 304 88 304 172 220 172 220 204 304 204 304 288" class="ci-primary"/>
+            </svg>
+      </a>
+      <a href="schedule" class="app-sidebar-link">
+          <svg width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:#04009a;}.cls-2{fill:#77acf1;}</style></defs><g data-name="5. Calendar" id="_5._Calendar"><path class="cls-1" d="M31,9V5a3,3,0,0,0-3-3H24V1a1,1,0,0,0-2,0V2H17V1a1,1,0,0,0-2,0V2H10V1A1,1,0,0,0,8,1V5a1,1,0,0,0,2,0V4h5V5a1,1,0,0,0,2,0V4h5V5a1,1,0,0,0,2,0V4h4a1,1,0,0,1,1,1V8H3V5A1,1,0,0,1,4,4H5A1,1,0,0,0,5,2H4A3,3,0,0,0,1,5V29a3,3,0,0,0,3,3H28a3,3,0,0,0,3-3V13a1,1,0,0,0-2,0V29a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V10H30A1,1,0,0,0,31,9Z"/><path class="cls-1" d="M11,15a2,2,0,0,0-2-2H7a2,2,0,0,0-2,2v2a2,2,0,0,0,2,2H9a2,2,0,0,0,2-2ZM9,17H7V15H9Z"/><path class="cls-1" d="M15,13a2,2,0,0,0-2,2v2a2,2,0,0,0,2,2h2a2,2,0,0,0,2-2V15a2,2,0,0,0-2-2Zm2,4H15V15h2Z"/><path class="cls-1" d="M27,15a2,2,0,0,0-2-2H23a2,2,0,0,0-2,2v2a2,2,0,0,0,2,2h2a2,2,0,0,0,2-2Zm-2,2H23V15h2Z"/><path class="cls-1" d="M9,21H7a2,2,0,0,0-2,2v2a2,2,0,0,0,2,2H9a2,2,0,0,0,2-2V23A2,2,0,0,0,9,21Zm0,4H7V23H9Z"/><path class="cls-1" d="M25,21H23a2,2,0,0,0-2,2v2a2,2,0,0,0,2,2h2a2,2,0,0,0,2-2V23A2,2,0,0,0,25,21Zm0,4H23V23h2Z"/><path class="cls-2" d="M17.414,24l1.293-1.293a1,1,0,0,0-1.414-1.414L16,22.586l-1.293-1.293a1,1,0,0,0-1.414,1.414L14.586,24l-1.293,1.293a1,1,0,1,0,1.414,1.414L16,25.414l1.293,1.293a1,1,0,0,0,1.414-1.414Z"/></g></svg>
+      </a>
+      <a href="report">
+          <svg width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:#04009a;}.cls-2{fill:#77acf1;}</style></defs><g data-name="26. Clipboard" id="_26._Clipboard"><path class="cls-1" d="M25,32H7a3,3,0,0,1-3-3V7A3,3,0,0,1,7,4H8A1,1,0,0,1,8,6H7A1,1,0,0,0,6,7V29a1,1,0,0,0,1,1H25a1,1,0,0,0,1-1V16a1,1,0,0,1,2,0V29A3,3,0,0,1,25,32Z"/><path class="cls-1" d="M27,13a1,1,0,0,1-1-1V7a1,1,0,0,0-1-1H20a1,1,0,0,1,0-2h5a3,3,0,0,1,3,3v5A1,1,0,0,1,27,13Z"/><path class="cls-1" d="M19,8H13a2,2,0,0,1-2-2V4a2,2,0,0,1,2-2h6a2,2,0,0,1,2,2V6A2,2,0,0,1,19,8ZM13,4V6h6V4Z"/><path class="cls-1" d="M16,4a1,1,0,0,1-1-1V1a1,1,0,0,1,2,0V3A1,1,0,0,1,16,4Z"/><path class="cls-1" d="M13,17H9a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1v4A1,1,0,0,1,13,17Zm-3-2h2V13H10Z"/><path class="cls-1" d="M13,26H9a1,1,0,0,1-1-1V21a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1v4A1,1,0,0,1,13,26Zm-3-2h2V22H10Z"/><path class="cls-2" d="M23,15H17a1,1,0,0,1,0-2h6a1,1,0,0,1,0,2Z"/><path class="cls-2" d="M23,24H17a1,1,0,0,1,0-2h6a1,1,0,0,1,0,2Z"/></g></svg>
+      </a>
+    </div>
+    <div class="projects-section">
+      <div class="projects-section-header">
+        <p>Projects</p>
+        <p class="time">December, 12</p>
+      </div>
+      <div class="projects-section-line">
+        <div class="projects-status">
+          <div class="item-status">
+            <span class="status-number">45</span>
+            <span class="status-type">In Progress</span>
+          </div>
+          <div class="item-status">
+            <span class="status-number">24</span>
+            <span class="status-type">Upcoming</span>
+          </div>
+          <div class="item-status">
+            <span class="status-number">62</span>
+            <span class="status-type">Total Projects</span>
+          </div>
+        </div>
+        <div class="view-actions">
+          <button class="view-btn list-view" title="List View" onclick="GridView_Button()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+              <line x1="8" y1="6" x2="21" y2="6" />
+              <line x1="8" y1="12" x2="21" y2="12" />
+              <line x1="8" y1="18" x2="21" y2="18" />
+              <line x1="3" y1="6" x2="3.01" y2="6" />
+              <line x1="3" y1="12" x2="3.01" y2="12" />
+              <line x1="3" y1="18" x2="3.01" y2="18" /></svg>
+          </button>
+          <button class="view-btn grid-view active" title="Grid View" onclick="ListView_Button()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" /></svg>
+          </button>
+        </div>
+      </div>
+      <div class="project-boxes jsGridView">
+          @if(exams.Count() == 0)
+          {
+             <Loading/>
+          }
+          @foreach(var Obj in exams)
+          {
+            <div class="project-box-wrapper">
+              <div class="project-box" style="background-color: #fee4cb;">
+                <div class="project-box-header">
+                  <span>December 10, 2020</span>
+                  <div class="more-wrapper">
+                    <button class="project-btn-more">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+                        <circle cx="12" cy="12" r="1" />
+                        <circle cx="12" cy="5" r="1" />
+                        <circle cx="12" cy="19" r="1" /></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="project-box-content-header">
+                  <p class="box-content-header">@Obj.Title</p>
+                  <p class="box-content-subheader">@Obj.Type</p>
+                </div>
+                <div class="box-progress-wrapper">
+                  <p class="box-progress-header">Progress</p>
+                  <div class="box-progress-bar">
+                    <span class="box-progress" style="width: 60%; background-color: #ff942e"></span>
+                  </div>
+                  <p class="box-progress-percentage">60%</p>
+                </div>
+                <div class="project-box-footer">
+                  <div class="participants">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="participant">
+                    <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="participant">
+                    <button class="add-participant" style="color: #ff942e;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                        <path d="M12 5v14M5 12h14" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="days-left" style="color: #ff942e;">
+                    2 Days Left
+                  </div>
+                </div>
+              </div>
+            </div>
+          } 
+  </div>
+</div>
+<div class="messages-section">
+  <button class="messages-close" onclick="Close_Message()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="15" y1="9" x2="9" y2="15" />
+      <line x1="9" y1="9" x2="15" y2="15" /></svg>
+  </button>
+  <div class="projects-section-header">
+    <p>Client Messages</p>
+  </div>
+  <div class="messages">
+    <div class="message-box">
+      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
+      <div class="message-content">
+        <div class="message-header">
+          <div class="name">Stephanie</div>
+          <div class="star-checkbox">
+            <input type="checkbox" id="star-1">
+            <label for="star-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+            </label>
+          </div>
+        </div>
+        <p class="message-line">
+          I got your first assignment. It was quite good. 🥳 We can continue with the next assignment.
+        </p>
+        <p class="message-line time">
+          Dec, 12
+        </p>
+      </div>
+    </div>
+    <div class="message-box">
+      <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
+      <div class="message-content">
+        <div class="message-header">
+          <div class="name">Mark</div>
+          <div class="star-checkbox">
+            <input type="checkbox" id="star-2">
+            <label for="star-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+            </label>
+          </div>
+        </div>
+        <p class="message-line">
+          Hey, can tell me about progress of project? I'm waiting for your response.
+        </p>
+        <p class="message-line time">
+          Dec, 12
+        </p>
+      </div>
+    </div>
+    <div class="message-box">
+      <img src="https://images.unsplash.com/photo-1543965170-4c01a586684e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDZ8fG1hbnxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="profile image">
+      <div class="message-content">
+        <div class="message-header">
+          <div class="name">David</div>
+          <div class="star-checkbox">
+            <input type="checkbox" id="star-3">
+            <label for="star-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+            </label>
+          </div>
+        </div>
+        <p class="message-line">
+          Awesome! 🤩 I like it. We can schedule a meeting for the next one.
+        </p>
+        <p class="message-line time">
+          Dec, 12
+        </p>
+      </div>
+    </div>
+    <div class="message-box">
+      <img src="https://images.unsplash.com/photo-1533993192821-2cce3a8267d1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHdvbWFuJTIwbW9kZXJufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="profile image">
+      <div class="message-content">
+        <div class="message-header">
+          <div class="name">Jessica</div>
+          <div class="star-checkbox">
+            <input type="checkbox" id="star-4">
+            <label for="star-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+            </label>
+          </div>
+        </div>
+        <p class="message-line">
+          I am really impressed! Can't wait to see the final result.
+        </p>
+        <p class="message-line time">
+          Dec, 11
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

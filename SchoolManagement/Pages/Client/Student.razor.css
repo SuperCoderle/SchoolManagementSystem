@@ -1,0 +1,86 @@
+﻿h1 {
+    font-size: 0.9em;
+    font-weight: 100;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-top: 10px;
+    color: #FCFCFC;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.green {
+    color: #4ec07d;
+}
+
+.alert {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+p {
+    margin-top: -5px;
+    font-weight: 100;
+    color: #75ebb8;
+    letter-spacing: 1px;
+}
+
+a, .dot {
+    cursor: pointer;
+}
+
+#success-box {
+    width: 245px;
+    height: 250px;
+    margin: 20px 13px 20px;
+    background: linear-gradient(#e66465, #9198e5);
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(203, 205, 211, 0.1);
+    perspective: 40px;
+    display: inline-block;
+}
+
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #FCFCFC;
+    border-radius: 50%;
+    position: absolute;
+    top: 4%;
+    right: 6%;
+}
+
+    .dot:hover {
+        background: #c9c9c9;
+    }
+
+
+
+.message {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 40%;
+    top: 27%;
+}
+
+.button-box {
+    position: absolute;
+    background: #FCFCFC;
+    width: 50%;
+    height: 15%;
+    border-radius: 20px;
+    top: 73%;
+    left: 25%;
+    outline: 0;
+    border: none;
+    box-shadow: 2px 2px 10px rgba(119, 119, 119, 0.5);
+    text-decoration: none;
+    text-align: center;
+}
+
+    .button-box:hover {
+        background: #efefef;
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+    }

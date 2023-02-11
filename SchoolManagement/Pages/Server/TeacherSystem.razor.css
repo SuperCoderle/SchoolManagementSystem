@@ -1,0 +1,78 @@
+﻿body {
+    background-color: #efefef;
+    align-items: center;
+    color: #333;
+    font-family: "Roboto";
+    font-weight: 400;
+    margin: 0;
+}
+
+.container {
+    margin-top: 5%;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    color: #333;
+    outline: medium none;
+    text-decoration: none;
+}
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn.focus:active,
+.btn:active:focus,
+.btn:focus {
+    outline: medium none;
+}
+
+#ribbon {
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    font-weight: 400;
+    padding: 15px;
+    position: fixed;
+    right: -269px;
+    text-align: center;
+    top: -125px;
+    transform: rotate(45deg);
+    transform-origin: 0 0 0;
+    width: 500px;
+}
+
+    #ribbon i {
+        font-size: 21px;
+        padding-right: 5px;
+        vertical-align: middle;
+    }
+
+.dataTable-sorter::before {
+    bottom: 8px;
+}
+
+.dataTable-sorter::after {
+    top: 8px;
+}
+
+.selected td {
+    background-color: #27ae60;
+    color: #fff;
+}
+
+div.snip1190 h2 {
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+    color: blue;
+}
+
+    div.snip1190 h2 span {
+        font-weight: 800;
+    }

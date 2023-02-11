@@ -1,0 +1,169 @@
+﻿@page "/schedule"
+@inherits Service.Client.Subject
+
+<div class='tab'>
+  <table border='0' cellpadding='0' cellspacing='0'>
+    <tr class='days'>
+      <th></th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <td>Saturday</td>
+    </tr>
+     <tr>
+      <td class='time'>08:00</td>
+      @foreach(var obj in subjectSorted)
+      {
+          if(obj.StartTime.Equals("08:00"))
+          {
+              if(obj.Name!=string.Empty)
+              {
+                    <td class='cs335 blue' data-tooltip='@obj.Name'>@obj.Classroom</td>
+              }
+              else
+              {
+                  <td></td>
+              }
+          }
+      }
+    </tr>
+    <tr>
+      <td class='time'>09:00</td>
+      @foreach(var obj in subjectSorted)
+      {
+          if(obj.StartTime.Equals("09:00"))
+          {
+              if(obj.Name != string.Empty)
+              {
+                  <td class='cs426 purple' data-tooltip='@obj.Name'>@obj.Classroom</td>
+              }
+              else
+              {
+                  <td></td>
+              }
+          }
+      }
+    </tr>
+    <tr>
+      <td class='time'>10:00</td>
+      @foreach(var obj in subjectSorted)
+      {
+          if(obj.StartTime.Equals("10:00"))
+          {
+              if(obj.Name != string.Empty)
+              {
+                   <td class='md352 green' data-tooltip='@obj.Name'>@obj.Classroom</td>
+              }
+              else
+              {
+                  <td></td>
+              }
+          }
+      }
+    </tr>
+    <tr>
+      <td class='time'>11:00</td>
+      @foreach(var obj in subjectSorted)
+      {
+          if(obj.StartTime.Equals("11:00"))
+          {
+              if(obj.Name != string.Empty)
+              {
+                  <td class='cs240 orange' data-tooltip='@obj.Name'>@obj.Classroom</td>
+              }
+              else
+              {
+                  <td></td>
+              }
+          }
+      }
+    </tr>
+    <tr>
+      <td class='time'>13:00</td>
+      @foreach(var obj in subjectSorted)
+      {
+          if(obj.StartTime.Equals("13:00"))
+          {
+              if(obj.Name != string.Empty)
+              {
+                  <td class='cs426 purple' data-tooltip='@obj.Name'>@obj.Classroom</td>
+              }
+              else
+              {
+                  <td></td>
+              }
+          }
+      }
+    </tr>
+    <tr>
+      <td class='time'>14:00</td>
+      @foreach(var obj in subjectSorted)
+      {
+          if(obj.StartTime.Equals("14:00"))
+          {
+              if(obj.Name != string.Empty)
+              {
+                 <td class='cs240 orange' data-tooltip='@obj.Name'>@obj.Classroom</td>
+              }
+              else
+              {
+                  <td></td>
+              }
+          }
+      }
+    </tr>
+    <tr>
+      <td class='time'>15:00</td>
+      @foreach(var obj in subjectSorted)
+      {
+          if(obj.StartTime.Equals("15:00"))
+          {
+              if(obj.Name != string.Empty)
+              {
+                  <td class='cs240 orange lab' data-tooltip='@obj.Name'>@obj.Classroom</td>
+              }
+              else
+              {
+                  <td></td>
+              }
+          }
+      }
+    </tr>
+    <tr>
+      <td class='time'>16:00</td>
+      @foreach(var obj in subjectSorted)
+      {
+          if(obj.StartTime.Equals("16:00"))
+          {
+              if(obj.Name != string.Empty)
+              {
+                  <td class='cs335 blue' data-tooltip='@obj.Name'>@obj.Classroom</td>
+              }
+              else
+              {
+                  <td></td>
+              }
+          }
+      }
+    </tr>
+    <tr>
+      <td class='time'>17:00</td>
+      @foreach(var obj in subjectSorted)
+      {
+          if(obj.StartTime.Equals("17:00"))
+          {
+              if(obj.Name != string.Empty)
+              {
+                  <td class='cs335 blue' data-tooltip='@obj.Name'>@obj.Classroom</td>
+              }
+              else
+              {
+                  <td></td>
+              }
+          }
+      }
+    </tr>
+  </table>
+</div>

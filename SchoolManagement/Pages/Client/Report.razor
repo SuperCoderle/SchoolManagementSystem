@@ -1,0 +1,119 @@
+﻿@page "/report/{ID:int}"
+@inherits Service.Client.Report
+
+<div class="text-center">
+  <h2 class="title">Membe School</h2>
+  <h4 class="title">STATEMENT OF MARKS</h4>
+  <span class="title">YEAR: 2022-2023</span>
+</div>
+
+@foreach(var obj in students)
+{
+    <div class="student-profile py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card shadow-sm">
+              <div class="card-header bg-transparent text-center">
+                <img class="profile_img" src="@Path/@obj.Photo" alt="">
+                <h3>@obj.LastName @obj.FirstName</h3>
+              </div>
+              <div class="card-body">
+                <p class="mb-0"><strong class="pr-1">Student ID:</strong> @obj.StudentID</p>
+                <p class="mb-0"><strong class="pr-1">Class:</strong> @obj.Class</p>
+                <p class="mb-0"><strong class="pr-1">Section:</strong> @obj.Section</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card shadow-sm">
+              <div class="card-header bg-transparent border-0">
+                <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+              </div>
+              <div class="card-body pt-0">
+                <table class="table table-bordered">
+                  <tr>
+                    <th width="30%">Roll</th>
+                    <td width="2%">:</td>
+                    <td>125</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Academic Year </th>
+                    <td width="2%">:</td>
+                    <td>2020</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Gender</th>
+                    <td width="2%">:</td>
+                    <td> @obj.Gender</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Religion</th>
+                    <td width="2%">:</td>
+                    <td>Group</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">blood</th>
+                    <td width="2%">:</td>
+                    <td>B+</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+}
+
+
+<div class="content-wrapper">
+  <section class="content">
+    <div class="box box-warning">
+      <div class="box-body">
+        <div class="container">
+          <div class="jumbotron">
+            <table width="100%">
+              <thead>
+                <tr>
+                  <td colspan="3">SUBJECTS </td>
+                  <td colspan="2"> GRADE </td>
+                </tr>
+                <tr>
+                  <td>Code </td>
+                  <td colspan="2"> Name </td>
+                  <td> Letter </td>
+                  <td> Points </td>
+                </tr>
+              </thead>
+
+              <tbody>
+                  @foreach(var obj in reports)
+                  {
+                      <tr>
+                          <td>@obj.Classroom</td>
+                          <td colspan="2">@obj.SubjectName</td>
+                          <td> @obj.Letter </td>
+                          <td> @obj.Point</td>
+                      </tr>
+                  }
+              </tbody>
+
+              <tfoot>
+                <tr>
+                  <td colspan="3" class="footer">Total</td>
+                  <td> @Total() </td>
+                  <td colspan="2">@total</td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="footer">GRADE/PERCENTAGE</td>
+                  <td colspan="3">@Grade() / 4.0 </td>
+                </tr>
+               </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

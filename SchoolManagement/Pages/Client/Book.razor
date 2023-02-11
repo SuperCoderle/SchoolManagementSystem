@@ -1,0 +1,66 @@
+﻿@page "/book/{CategoryName}"
+@inherits Service.Client.Book
+
+@if(books.Count() == 0)
+{
+    <Loading />
+}
+@foreach(var obj in books)
+{
+    RandomColor();
+    <div id="success-box" style="background: linear-gradient(to bottom right, @book.RandomColor 40%, @book.RandomColor 100%);">
+        <div class="dot"></div>
+        <div class="message"><h1 class="alert">@obj.Name</h1><p>@obj.Description</p></div>
+		<button class="button-box" data-bs-toggle="modal" data-bs-target="#exampleModal"><h1 class="green">borrow</h1></button>
+    </div>
+    
+}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">asd</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				 <div class="d-flex flex-row bd-highlight mb-3">
+					<div class="p-2 w-50 bd-highlight">
+						<div class="input-group mb-3">
+							<span class="input-group-text">First Name</span>
+							<input type="text" class="form-control" />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Last Name</span>
+							<input type="text" class="form-control"  />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Class</span>
+							<input type="text" class="form-control"  />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Section</span>
+							<input type="text" class="form-control"  />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Gender</span>
+							<input type="text" class="form-control"  />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Date Of Birth</span>
+							<input type="date" class="form-control" />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Email</span>
+							<input type="email" class="form-control"  />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Phone</span>
+							<input type="tel" class="form-control"  />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

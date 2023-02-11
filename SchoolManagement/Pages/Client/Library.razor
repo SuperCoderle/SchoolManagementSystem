@@ -1,0 +1,17 @@
+﻿@page "/library"
+@inherits Service.Client.Library
+
+@foreach(var obj in libraries)
+{
+    <a href="book/@obj.CategoryName">
+        <div class="card">
+          <div class="img-category">
+            <img src="@lib.Path/@obj.Photo" alt="category" />
+          </div>
+          <div class="text">
+              <h3>@obj.CategoryName</h3>
+              <p>@obj.Description</p>
+          </div>
+        </div>
+    </a>
+}

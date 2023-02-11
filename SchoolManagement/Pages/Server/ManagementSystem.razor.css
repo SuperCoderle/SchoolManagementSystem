@@ -1,0 +1,55 @@
+﻿
+h1 {
+    font-size: 1.3em;
+    font-weight: 100;
+    letter-spacing: 3px;
+    padding-top: 5px;
+    color: #FCFCFC;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.alert {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+button, .dot {
+    cursor: pointer;
+}
+
+#success-box {
+    width: 245px;
+    height: 250px;
+    margin: 20px 13px 20px;
+    background: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(203, 205, 211, 0.1);
+    perspective: 40px;
+    display: inline-block;
+}
+
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #FCFCFC;
+    border-radius: 50%;
+    position: absolute;
+    top: 4%;
+    right: 6%;
+}
+
+    .dot:hover {
+        background: #c9c9c9;
+    }
+
+
+
+.message {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 40%;
+    top: 44%;
+}

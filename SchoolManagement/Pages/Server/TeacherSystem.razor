@@ -1,0 +1,143 @@
+﻿@page "/teacherSystem"
+@inherits Service.TeacherSystem
+
+<div class="snip1190">
+	<h2>Teac<span>her</span></h2>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" @onclick="AddClick"><i class="bi bi-plus-square"></i> Create</button></th>
+						<th><button type="button" class="btn btn-outline-dark"><i class="bi bi-pencil-square"></i> Edit</button></th>
+						<th><button type="button" class="btn btn-outline-danger"><i class="bi bi-x-square"></i> Cancle</button></th>
+						<th><button type="button" class="btn btn-outline-info" @onclick="ExcelExport"><i class="bi bi-file-earmark-excel"></i> Export</button></th>
+						<th><button type="button" class="btn btn-outline-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"/></svg> Export</button></th>
+						<th><button type="button" class="btn btn-outline-warning"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-xml" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992 1.274-2.007Zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999h.706Zm4.71-.674h1.696v.674H8.4V11.85h.791v3.325Z"/></svg> Export</button></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th colspan="2">
+							<div class="d-flex">
+								<input class="form-control me-sm-2" placeholder="Search" @bind="Name">
+								<button class="btn btn-secondary my-2 my-sm-0" @onclick="FindByName">Search</button>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<th>Teacher ID</th>
+						<th>Picture</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th data-type="date" data-format="YYYY-MM-DD">Date Of Birth</th>
+						<th>Gender</th>
+						<th>Experience</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Operations</th>
+					</tr>
+				</thead>
+				<tbody>
+					@if (teachers.Count() == 0)
+					{
+						<Loading />
+					}
+					else
+					{
+						@foreach (var obj in teachers)
+						{
+						<tr>
+							<td>@obj.TeacherID</td>
+							<td><img src="@tc.Path/@obj.Photo" width="60" height="60" /></td>
+							<td>@obj.FirstName</td>
+							<td>@obj.LastName</td>
+							<td>@obj.DateOfBirth</td>
+							<td>@obj.Gender</td>
+							<td>@obj.Experience</td>
+							<td>@obj.Email</td>
+							<td>@obj.Phone</td>
+							<td>
+								<button type="button" class="btn btn-light mr-1" data-bs-toggle="modal" data-bs-target="#exampleModal" @onclick="(() => EditClick(obj))">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+									  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+									  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+									</svg>
+								</button>
+								<button type="button" class="btn btn-light mr-1" @onclick="(() => DeleteClick(obj.TeacherID))">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+										  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+										</svg>
+								</button>
+							</td>
+						</tr>
+						}
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">@tc.Title</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				 <div class="d-flex flex-row bd-highlight mb-3">
+					<div class="p-2 w-50 bd-highlight">
+						<div class="input-group mb-3">
+							<span class="input-group-text">First Name</span>
+							<input type="text" class="form-control" @bind="tc.FirstName" />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Last Name</span>
+							<input type="text" class="form-control" @bind="tc.LastName" />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Date Of Birth</span>
+							<input type="date" class="form-control" @bind="tc.DateOfBirth" />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Gender</span>
+							<input type="text" class="form-control" @bind="tc.Gender" />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Experience</span>
+							<input type="text" class="form-control" @bind="tc.Experience" />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Email</span>
+							<input type="email" class="form-control" @bind="tc.Email" />
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Phone</span>
+							<input type="tel" class="form-control" @bind="tc.Phone" />
+						</div>
+					</div>
+					<div class="p-2 w-50 bd-highlight">
+						<img width="250" height="250" src="@tc.Path/@tc.Photo" />
+						<BlazorInputFile.InputFile class="m-2" OnChange="UploadFile" />
+					</div>
+				</div>
+
+				@if (tc.Title == "Add New Teacher")
+				{
+							<button type="button" class="btn btn-primary" @onclick="CreateClick">
+								Create
+							</button>
+				}
+				else
+				{
+							<button type="button" class="btn btn-primary" @onclick="UpdateClick">
+								Update
+							</button>
+				}
+			</div>
+		</div>
+	</div>
+</div>
